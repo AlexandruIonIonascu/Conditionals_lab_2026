@@ -1,61 +1,15 @@
 # Conditionals lab 2026
 
-Work through this guide in order: recap, Part 1, Part 2, then homework.
-Each Python file contains the task and, where needed, starter code.
-This guide contains the explanations, working steps, examples and reading
-links. Open each file from its exercise heading below.
-
-## How to work
-
-1. Open your assignment repository in Codespaces or your Python editor.
-2. Read the exercise, identify its inputs and choose the type of each value.
-   `input()` returns text; convert numeric answers with `int()` or `float()`.
-3. Write your solution below the task comments. In recap R4 and conditionals
-   exercise 5, repair the supplied code in place.
-4. Save and run **one file at a time**, from the repository root. For example:
-
-   ```bash
-   python recap/01_variables.py
-   ```
-
-   For the first conditionals exercise, run:
-
-   ```bash
-   python Part1/1_Orwell.py
-   ```
-
-5. Type answers in the terminal and press **Enter**. Use a decimal point,
-   such as `2.5`.
-6. Compare your result with every sample. Try the additional checks below;
-   for a condition, test both outcomes and the boundary value.
-7. Save and submit your progress using the steps at the end of this guide.
-
-Assume correctly typed numeric inputs; exception handling is not required.
-Calculate results from the inputs rather than printing fixed sample answers.
-Use `if` statements for the conditionals exercises. Inputs used as quantities,
-prices or durations in the recap are nonnegative.
+Recap, individual conditionals, Copilot practice and homework.
 
 ## Recap
 
-Allow about **30 minutes**. The exercises gradually combine more concepts:
-start with text, add input and numeric conversion, repair a program, then
-use new arithmetic operators and formatted output. Work independently and
-ask the instructor when stuck. No `if` statements or loops are needed here.
-
-| Exercise | New practice | Suggested time |
-| --- | --- | --- |
-| R1 | Join strings with `+` and include spaces | 3 min |
-| R2 | Combine two text inputs into an address | 4 min |
-| R3 | Convert text to integers before adding | 5 min |
-| R4 | Find and fix conversion and arithmetic mistakes | 5 min |
-| R5 | Use `//` and `%` to split a duration | 5 min |
-| R6 | Combine inputs, calculations and f-string formatting | 6 min |
-
-Use the remaining 2 minutes to review the types and explain one mistake.
-This recap does not require completed homework from the
-[variables lab](https://github.com/AlexandruIonIonascu/Variables_lab_2026).
+Six exercises in increasing difficulty. Allow about **30 minutes**.
 
 ### R1. [Concatenate a name](recap/01_variables.py)
+
+Read: [String concatenation — joining strings and adding a space](https://www.w3schools.com/python/python_strings_concatenate.asp)
+and [Variables — assigning values](https://www.w3schools.com/python/python_variables.asp).
 
 With strings, `+` joins text. It does **not** insert spaces automatically.
 Build a full name from two variables, rather than repeating a finished
@@ -72,10 +26,10 @@ Expected output for the original values:
 Full name: Ada Lovelace
 ```
 
-Read: [String concatenation — joining strings and adding a space](https://www.w3schools.com/python/python_strings_concatenate.asp)
-and [Variables — assigning values](https://www.w3schools.com/python/python_variables.asp).
-
 ### R2. [Build an address from input](recap/02_input.py)
+
+Read: [User input — prompts and storing replies](https://www.w3schools.com/python/python_user_input.asp)
+and [String concatenation](https://www.w3schools.com/python/python_strings_concatenate.asp).
 
 Reuse concatenation with values supplied by the user. Keep the username
 and domain in separate variables and insert the `@` character between them.
@@ -94,10 +48,11 @@ Domain: example.org
 Address: ada@example.org
 ```
 
-Read: [User input — prompts and storing replies](https://www.w3schools.com/python/python_user_input.asp)
-and [String concatenation](https://www.w3schools.com/python/python_strings_concatenate.asp).
-
 ### R3. [Add two numeric inputs](recap/03_integer_input.py)
+
+Read: [User input — numeric input](https://www.w3schools.com/python/python_user_input.asp),
+[Casting — int()](https://www.w3schools.com/python/python_casting.asp)
+and [Arithmetic operators — addition](https://www.w3schools.com/python/python_operators_arithmetic.asp).
 
 Digits read with `input()` are still text. The same `+` operator that joined
 text in R1–R2 must now add numbers. Convert the values before calculating.
@@ -115,11 +70,11 @@ Second number: 7
 Sum: 10
 ```
 
-Read: [User input — numeric input](https://www.w3schools.com/python/python_user_input.asp),
-[Casting — int()](https://www.w3schools.com/python/python_casting.asp)
-and [Arithmetic operators — addition](https://www.w3schools.com/python/python_operators_arithmetic.asp).
-
 ### R4. [Fix the total](recap/04_decimal_input.py)
+
+Read: [Casting — int() and float()](https://www.w3schools.com/python/python_casting.asp),
+[Data types — checking with type()](https://www.w3schools.com/python/python_datatypes.asp)
+and [Arithmetic operators — multiplication](https://www.w3schools.com/python/python_operators_arithmetic.asp).
 
 The supplied program runs, but its calculation is wrong. Repair the
 existing code so that a decimal unit price and a whole-number quantity
@@ -141,35 +96,31 @@ Total: 10.0
 
 Be ready to explain both the conversion changes and the arithmetic change.
 
-Read: [Casting — int() and float()](https://www.w3schools.com/python/python_casting.asp),
-[Data types — checking with type()](https://www.w3schools.com/python/python_datatypes.asp)
-and [Arithmetic operators — multiplication](https://www.w3schools.com/python/python_operators_arithmetic.asp).
+### R5. [Minutes left over](recap/05_minutes.py)
 
-### R5. [Split minutes into hours and minutes](recap/05_minutes.py)
+Read: [Arithmetic operators — modulus (%)](https://www.w3schools.com/python/python_operators_arithmetic.asp)
+and [Casting — int()](https://www.w3schools.com/python/python_casting.asp).
 
-For nonnegative integers, `//` gives the number of complete groups and
-`%` gives the remainder. These operators let you split a duration without
-a loop. Ordinary `/` gives a division result that can include a fraction.
+The `%` operator gives the remainder of a division. With 60 minutes per
+hour, use it to find the minutes left over after removing complete hours.
 
 1. Read a nonnegative total number of minutes and convert it to `int`.
-2. Calculate the complete hours and the minutes left over, using 60 minutes
-   per hour. Store the two results separately.
-3. Display the results with the labels `Hours:` and `Minutes:`.
-4. Check `59` → 0 hours and 59 minutes, `60` → 1 hour and 0 minutes,
-   and `0` → 0 hours and 0 minutes.
+2. Calculate the remaining minutes using `%` and display them with the
+   label `Minutes:`.
+
+Check `59` → `59`, `60` → `0`, `135` → `15` and `0` → `0`.
 
 Sample transcript:
 
 ```text
 Total minutes: 135
-Hours: 2
 Minutes: 15
 ```
 
-Read: [Arithmetic operators — floor division (//) and modulus (%)](https://www.w3schools.com/python/python_operators_arithmetic.asp)
-and [Casting — int()](https://www.w3schools.com/python/python_casting.asp).
-
 ### R6. [Print a receipt with f-strings](recap/06_fstrings.py)
+
+Read: [Format strings — f-strings, placeholders and decimal formatting](https://www.w3schools.com/python/python_strings_format.asp)
+and [Casting](https://www.w3schools.com/python/python_casting.asp).
 
 Combine the earlier input and calculation skills with formatted output.
 An f-string starts with `f` before the quote and places values inside
@@ -193,17 +144,10 @@ Unit price: 2.5
 4 x Pen at 2.50 lei = 10.00 lei
 ```
 
-Read: [Format strings — f-strings, placeholders and decimal formatting](https://www.w3schools.com/python/python_strings_format.asp)
-and [Casting](https://www.w3schools.com/python/python_casting.asp).
-
-**Recap check:** explain why `+` joins strings but adds numbers, which
-conversions R4 needed, how `//` differs from `%`, and what `:.2f` does.
-
 ## Part 1
 
-Write these solutions yourself. Allow about **45 minutes**: start with
-exercises 1–3, then attempt 4 if time allows. Continue unfinished work
-in the next lab; you do not need to complete all ten conditionals exercises today.
+Work independently for about **45 minutes**. Start with exercises 1–3,
+then attempt 4 if time allows. Continue unfinished work next lab.
 
 Remember: `=` assigns a value and `==` compares values. End `if`, `elif`
 and `else` lines with `:` and indent their blocks with four spaces.
@@ -211,6 +155,9 @@ Separate `if` statements can all run; an `if/elif/else` chain selects
 only the first matching branch.
 
 ### 1. [Orwell](Part1/1_Orwell.py)
+
+Read: [If — conditions and indentation](https://www.w3schools.com/python/python_conditions.asp)
+and [Comparison operators — equality](https://www.w3schools.com/python/python_operators_comparison.asp).
 
 Use a single condition to decide whether to print a message. Read an integer
 and print `Orwell` only when it equals `1984`. For other inputs, the input
@@ -229,10 +176,10 @@ Please type in a number: 1984
 Orwell
 ```
 
-Read: [If — conditions and indentation](https://www.w3schools.com/python/python_conditions.asp)
-and [Comparison operators — equality](https://www.w3schools.com/python/python_operators_comparison.asp).
-
 ### 2. [Absolute value](Part1/2_Absolute.py)
+
+Read: [If](https://www.w3schools.com/python/python_conditions.asp)
+and [Else — the alternative branch](https://www.w3schools.com/python/python_if_else.asp).
 
 The absolute value is a number's distance from zero. Read an integer and
 use a condition to change a negative value to its opposite; keep zero
@@ -258,10 +205,10 @@ Please type in a number: -99
 The absolute value of this number is 99
 ```
 
-Read: [If](https://www.w3schools.com/python/python_conditions.asp)
-and [Else — the alternative branch](https://www.w3schools.com/python/python_if_else.asp).
-
 ### 3. [Order of magnitude](Part1/3_Order.py)
+
+Read: [If — when a block runs](https://www.w3schools.com/python/python_conditions.asp)
+and [Comparison operators — less than](https://www.w3schools.com/python/python_operators_comparison.asp).
 
 Several conditions can be true for the same number. Read an integer and
 print **every** applicable size message, in the order shown below.
@@ -298,10 +245,10 @@ Please type in a number: 1123
 Thank you!
 ```
 
-Read: [If — when a block runs](https://www.w3schools.com/python/python_conditions.asp)
-and [Comparison operators — less than](https://www.w3schools.com/python/python_operators_comparison.asp).
-
 ### 4. [Calculator](Part1/4_Calculator.py)
+
+Read: [Elif — choosing among alternatives](https://www.w3schools.com/python/python_if_elif.asp)
+and [Arithmetic operators](https://www.w3schools.com/python/python_operators_arithmetic.asp).
 
 Choose a calculation by comparing text. Read two integers and an operation:
 `add`, `multiply` or `subtract`. Calculate and display the corresponding
@@ -337,22 +284,16 @@ Operation: subtract
 4 - 6 = -2
 ```
 
-Read: [Elif — choosing among alternatives](https://www.w3schools.com/python/python_if_elif.asp)
-and [Arithmetic operators](https://www.w3schools.com/python/python_operators_arithmetic.asp).
-
 ## Part 2
 
-Continue here once Part 1 is complete, including in the next lab if needed.
-Use **Copilot** to help you understand and improve your work:
-
-1. Read the task, predict an output and make an initial attempt yourself.
-2. Include the current file as context in Copilot Chat.
-3. Ask for an explanation or a hint about one problem at a time.
-4. Write or revise the code in the Python file and explain every change you keep.
-5. Run all samples and additional checks. A reply in Chat alone does not
-   complete an exercise.
+Use Copilot for hints and explanations, then edit and test the Python file.
+Be ready to explain the code you keep.
 
 ### 5. [Repair the syntax](Part2_Copilot/5_Sintax.py)
+
+Read: [If — syntax and indentation](https://www.w3schools.com/python/python_conditions.asp),
+[Casting](https://www.w3schools.com/python/python_casting.asp)
+and [print() — combining text and numbers](https://www.w3schools.com/python/ref_func_print.asp).
 
 The supplied program is **intentionally broken**. Ask Copilot to identify
 the syntax and type errors, then fix them in place. Check the colons,
@@ -379,11 +320,10 @@ Its value is now 1
 Have a nice day!
 ```
 
-Read: [If — syntax and indentation](https://www.w3schools.com/python/python_conditions.asp),
-[Casting](https://www.w3schools.com/python/python_casting.asp)
-and [print() — combining text and numbers](https://www.w3schools.com/python/ref_func_print.asp).
-
 ### 6. [Age](Part2_Copilot/6_Age.py)
+
+Read: [Else — two alternatives](https://www.w3schools.com/python/python_if_else.asp)
+and [Comparison operators — greater than or equal](https://www.w3schools.com/python/python_operators_comparison.asp).
 
 Use two alternative branches to decide which message to print.
 Read an integer age and use **18** as the age of maturity.
@@ -402,10 +342,10 @@ How old are you? 32
 You are of age!
 ```
 
-Read: [Else — two alternatives](https://www.w3schools.com/python/python_if_else.asp)
-and [Comparison operators — greater than or equal](https://www.w3schools.com/python/python_operators_comparison.asp).
-
 ### 7. [The greater number](Part2_Copilot/7_Greater.py)
+
+Read: [Elif — multiple outcomes](https://www.w3schools.com/python/python_if_elif.asp)
+and [Comparison operators](https://www.w3schools.com/python/python_operators_comparison.asp).
 
 There are three possible outcomes: the first number is greater, the second
 is greater, or they are equal. Read two integers and display the required
@@ -433,10 +373,11 @@ Please type in another number: 5
 The numbers are equal!
 ```
 
-Read: [Elif — multiple outcomes](https://www.w3schools.com/python/python_if_elif.asp)
-and [Comparison operators](https://www.w3schools.com/python/python_operators_comparison.asp).
-
 ### 8. [The elder person](Part2_Copilot/8_Elder.py)
+
+Read: [User input](https://www.w3schools.com/python/python_user_input.asp),
+[Casting](https://www.w3schools.com/python/python_casting.asp)
+and [Elif](https://www.w3schools.com/python/python_if_elif.asp).
 
 Combine text and numeric inputs. Keep the two names as strings and convert
 the two ages to integers, using separate variables. Compare the ages and
@@ -467,11 +408,10 @@ Age: 1
 Bill and Jean are the same age
 ```
 
-Read: [User input](https://www.w3schools.com/python/python_user_input.asp),
-[Casting](https://www.w3schools.com/python/python_casting.asp)
-and [Elif](https://www.w3schools.com/python/python_if_elif.asp).
-
 ### 9. [Check an age](Part2_Copilot/9_Check.py)
+
+Read: [Elif — the first matching branch](https://www.w3schools.com/python/python_if_elif.asp)
+and [Comparison operators](https://www.w3schools.com/python/python_operators_comparison.asp).
 
 The order of conditions matters when ranges overlap. Read an integer age
 and use the exact rules below:
@@ -501,16 +441,14 @@ What is your age? -4
 That must be a mistake
 ```
 
-Read: [Elif — the first matching branch](https://www.w3schools.com/python/python_if_elif.asp)
-and [Comparison operators](https://www.w3schools.com/python/python_operators_comparison.asp).
-
 ## Part 3: Homework
 
-Start when you are ready and follow the instructor's deadline.
-Attempt the solution yourself; you may ask Copilot for explanations or
-hints, but write and explain your own code.
+Write your own solution and follow the instructor's deadline.
 
 ### 10. [Grading](Part3_Homework/10_Grading.py)
+
+Read: [Elif — ordering several branches](https://www.w3schools.com/python/python_if_elif.asp)
+and [Comparison operators — inclusive boundaries](https://www.w3schools.com/python/python_operators_comparison.asp).
 
 Read a whole-number score from 0 to 100 and use ordered conditions to
 choose its letter grade. No input validation is required. Print the letter
@@ -533,21 +471,3 @@ Sample transcript:
 Score: 85
 B
 ```
-
-Read: [Elif — ordering several branches](https://www.w3schools.com/python/python_if_elif.asp)
-and [Comparison operators — inclusive boundaries](https://www.w3schools.com/python/python_operators_comparison.asp).
-
-## Save and submit
-
-1. Click **File → Save All**.
-2. Open **Source Control**, review the changes and stage the files with **+**.
-3. Enter a short commit message and click **Commit**.
-4. Choose **Push** from the Source Control menu.
-5. Refresh your assignment repository on GitHub and open the changed files
-   to confirm that your latest code was uploaded.
-
-Repeat as you make progress, and verify your work on GitHub before stopping
-your Codespace. Keep the existing exercise filenames and folders.
-
-Exercises 1–10 are adapted from the
-[previous conditionals lab](https://github.com/AlexandruIonascu33/Conditionals).
