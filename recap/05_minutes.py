@@ -1,4 +1,4 @@
-# R5 — Hours and minutes
+# R5 — Minutes left over
 # Ask for a nonnegative whole number of minutes.
-# Use // and % to calculate the complete hours and remaining minutes.
-# Print the two results on separate lines, labelled "Hours:" and "Minutes:".
+# Use % to find the minutes left over after removing complete hours.
+# Print the result with the label "Minutes:".
